@@ -3,6 +3,16 @@ layout: page
 description: "「离开世界之前 一切都是过程」"
 ---
 
+{% if site.posts.size == 0 %}
+<div class="post-preview post-placeholder">
+    <h2 class="post-title">内容准备中</h2>
+    <p class="post-content-preview">
+        这里将发布 KendreyX 的文章。请稍后再来。
+    </p>
+</div>
+<hr>
+{% endif %}
+
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">

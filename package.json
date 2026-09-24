@@ -1,14 +1,14 @@
 {
     "name": "hux-blog",
-    "title": "Hux Blog",
-    "author": "Hux <huxpro@gmail.com>",
+    "title": "KendreyX Blog",
+    "author": "KendreyX <helloworld@kendrey.top>",
     "version": "1.8.2",
-    "homepage": "http://huxpro.github.io",
+    "homepage": "https://blog.kendrey.top",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Huxpro/huxpro.github.io"
+        "url": "https://github.com/kendreyx/kendreyx.github.io.git"
     },
-    "bugs": "https://github.com/Huxpro/huxpro.github.io/issues",
+    "bugs": "https://github.com/kendreyx/kendreyx.github.io/issues",
     "devDependencies": {
         "grunt": ">=1.3.0",
         "grunt-banner": "~0.2.3",

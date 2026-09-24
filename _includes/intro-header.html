@@ -5,7 +5,7 @@
 
 {% if include.type == 'post' or include.type == 'page' %}
 <style type="text/css">
-    header.intro-header{
+    header.intro-header.particle-header{
         position: relative;
         background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');
         background: {{ page.header-bg-css }};
@@ -24,10 +24,11 @@
 
 {% if include.type == 'post' %}
 {% if page.header-style == 'text' %}
-<header class="intro-header style-text" >
+<header class="intro-header particle-header style-text" >
 {% else %}
-<header class="intro-header" >
+<header class="intro-header particle-header" >
 {% endif %}
+    <canvas class="particle-background" aria-hidden="true"></canvas>
     <div class="header-mask"></div>
     {% if page.header-img-credit %}
     <div class="header-img-credit">
@@ -94,7 +95,8 @@
 {% endif %}
 
 {% if include.type == 'page' %}
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+<header class="intro-header particle-header">
+  <canvas class="particle-background" aria-hidden="true"></canvas>
   <div class="header-mask"></div>
   <div class="container">
     <div class="row">
