@@ -1,20 +1,20 @@
 ---
 layout: page
 title: "About"
+title-key: nav.about
 description: "个人介绍正在整理中"
+description-key: about.description
 multilingual: true
 ---
 
-{% include multilingual-sel.html %}
-
 <!-- Chinese Version -->
-<div class="zh post-container">
+<div class="zh post-container" data-language-content="zh" lang="zh-CN">
     {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
     {{ about_zh | markdownify }}
 </div>
 
 <!-- English Version -->
-<div class="en post-container">
+<div class="en post-container" data-language-content="en" lang="en">
     {% capture about_en %}{% include about/en.md %}{% endcapture %}
     {{ about_en | markdownify }}
 </div>

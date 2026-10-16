@@ -25,16 +25,16 @@ https://github.com/kitian616/jekyll-TeXt-theme
     return queryObj;
   }
 
-  var setUrlQuery = (function() {
-    var baseUrl =  window.location.href.split('?')[0];
-    return function(query) {
-      if (typeof query === 'string') {
-        window.history.replaceState(null, '', baseUrl + query);
-      } else {
-        window.history.replaceState(null, '', baseUrl);
-      }
-    };
-  })();
+  function setUrlQuery(query) {
+    var url = new URL(window.location.href);
+    var tag = new URLSearchParams(query || '').get('tag');
+    if (tag) {
+      url.searchParams.set('tag', tag);
+    } else {
+      url.searchParams.delete('tag');
+    }
+    window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+  }
 
   $(document).ready(function() {
     var $tags = $('.js-tags');

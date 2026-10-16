@@ -1,7 +1,7 @@
 {
-  "name": "KendreyX Blog",
-  "short_name": "KendreyX",
-  "description": "About an engineer & designer who loves web.",
+  "name": "Kendrey Blog",
+  "short_name": "Kendrey",
+  "description": "Kendrey's personal blog.",
   "icons": [{
     "src": "icons/128.png",
     "sizes": "128x128",

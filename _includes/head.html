@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="description" content="{{ site.description }}">
+    <meta name="description" content="{{ site.description }}" data-i18n-content="site.description">
     <meta name="keywords" content="{{ site.keyword }}">
     <meta name="theme-color" content="{{ site.chrome-tab-theme-color }}">
 
@@ -33,7 +33,10 @@
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:site_name" content="{{ site.SEOTitle }}">
 
-    <title>{% if page.title %}{{ page.title }} - {{ site.SEOTitle }}{% else %}{{ site.SEOTitle }}{% endif %}</title>
+    <title{% if page.title-key %} data-page-title="{{ page.title-key }}"{% endif %}>{% if page.title-key %}{{ site.data.i18n.zh[page.title-key] }} - {{ site.SEOTitle }}{% elsif page.title %}{{ page.title }} - {{ site.SEOTitle }}{% else %}{{ site.SEOTitle }}{% endif %}</title>
+
+    <script id="site-translations" type="application/json">{"messages": {{ site.data.i18n | jsonify | replace: '</', '<\/' }}, "title": {{ site.title | jsonify | replace: '</', '<\/' }}}</script>
+    <script src="{{ '/js/i18n.js' | prepend: site.baseurl }}"></script>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="{{ site.baseurl }}/pwa/manifest.json">
@@ -51,6 +54,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ " /css/hux-blog.min.css" | prepend: site.baseurl }}">
     <link rel="stylesheet" href="{{ "/css/particle-background.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ '/css/site.css' | prepend: site.baseurl }}">
 
     <!-- Custom Fonts -->
     <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->

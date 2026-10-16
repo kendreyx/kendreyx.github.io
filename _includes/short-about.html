@@ -1,12 +1,12 @@
 <section class="visible-md visible-lg">
   <hr>
-  <h5><a href="{{'/about/' | prepend: site.baseurl }}">ABOUT ME</a></h5>
+  <h5><a href="{{'/about/' | prepend: site.baseurl }}" data-i18n="sidebar.about">关于我</a></h5>
   <div class="short-about">
     {% if site.sidebar-avatar %}
-    <img src="{{site.sidebar-avatar}}" />
+    <img src="{{site.sidebar-avatar}}" alt="Kendrey" />
     {% endif %}
     {% if site.sidebar-about-description %}
-    <p>{{site.sidebar-about-description}}</p>
+    <p data-i18n="sidebar.description">{{site.sidebar-about-description}}</p>
     {% endif %}
     <!-- SNS Link -->
     {% include sns-links.html %}

@@ -1,13 +1,14 @@
 ---
 layout: page
 description: "「离开世界之前 一切都是过程」"
+description-key: home.tagline
 ---
 
 {% if site.posts.size == 0 %}
 <div class="post-preview post-placeholder">
-    <h2 class="post-title">内容准备中</h2>
-    <p class="post-content-preview">
-        这里将发布 KendreyX 的文章。请稍后再来。
+    <h2 class="post-title" data-i18n="home.empty.title">内容准备中</h2>
+    <p class="post-content-preview" data-i18n="home.empty.body">
+        这里将发布 Kendrey 的文章。请稍后再来。
     </p>
 </div>
 <hr>
@@ -33,7 +34,7 @@ description: "「离开世界之前 一切都是过程」"
         </div>
     </a>
     <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        <span data-i18n="post.by">作者</span> {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} · <time datetime="{{ post.date | date_to_xmlschema }}" data-date="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y年%m月%d日" }}</time>
     </p>
 </div>
 <hr>
@@ -44,12 +45,12 @@ description: "「离开世界之前 一切都是过程」"
 <ul class="pager">
     {% if paginator.previous_page %}
     <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; <span data-i18n="post.newer">较新文章</span></a>
     </li>
     {% endif %}
     {% if paginator.next_page %}
     <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+            <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"><span data-i18n="post.older">较早文章</span> &rarr;</a>
     </li>
     {% endif %}
 </ul>

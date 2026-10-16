@@ -1,15 +1,15 @@
 <!-- Search -->
 <div class="search-page">
   <div class="search-icon-close-container">
-    <span class="search-icon-close">
-      <i class="fa fa-chevron-down"></i>
-    </span>
+    <button type="button" class="search-icon-close" data-i18n-aria-label="search.close" aria-label="关闭搜索">
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </button>
   </div>
   <div class="search-main container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <form></form>
-        <input type="text" id="search-input" placeholder="$ grep...">
+        <form role="search" onsubmit="return false">
+        <input type="search" id="search-input" data-i18n-placeholder="search.placeholder" data-i18n-aria-label="search.label" placeholder="搜索文章…" aria-label="搜索文章">
         </form>
         <div id="search-results" class="mini-post-list"></div>
       </div>

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.lang | default: 'zh-CN' }}" data-language="zh">
 
 {% include head.html %}
 
 <!-- hack iOS CSS :active style -->
-<body ontouchstart="">
+<body class="site-shell" ontouchstart="">
 
     {% include nav.html %}
     {% include search.html %}
 
-    {{ content }}
+    <main id="main-content" class="site-content">
+        {{ content }}
+    </main>
 
     {% include footer.html %}
 

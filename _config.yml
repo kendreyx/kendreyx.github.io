@@ -1,10 +1,11 @@
 # Site settings
-title: KendreyX Blog
-SEOTitle: KendreyX Blog
+title: Kendrey Blog
+SEOTitle: Kendrey Blog
+lang: zh-CN
 header-img: img/home-bg.jpg
 email: helloworld@kendrey.top
-description: "KendreyX Blog，内容正在整理中。"
-keyword: "KendreyX, KendreyX Blog, 个人博客"
+description: "Kendrey Blog，内容正在整理中。"
+keyword: "Kendrey, Kendrey Blog, 个人博客"
 url: "https://blog.kendrey.top" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -83,14 +84,4 @@ service-worker: true
 page-mathjax: false
 
 # Friends
-friends:
-  [
-    { title: "乱序（Midare）", href: "http://mida.re/" },
-    { title: "Ebn Zhang", href: "https://ebnbin.dev/" },
-    { title: "Kun Qian", href: "http://kunq.me" },
-    { title: "Sherry Woo", href: "https://sherrywoo.me/" },
-    { title: "SmdCn", href: "http://blog.smdcn.net" },
-    { title: "JiyinYiyong", href: "http://tiye.me/" },
-    { title: "DHong Say", href: "http://dhong.co" },
-    { title: "尹峰以为", href: "http://ingf.github.io/" },
-  ]
+friends: []

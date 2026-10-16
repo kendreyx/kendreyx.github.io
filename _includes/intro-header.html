@@ -47,7 +47,7 @@
                     <h1>{{ page.title }}</h1>
                     {% comment %} always create a h2 for keeping the margin {% endcomment %}
                     <h2 class="subheading">{{ page.subtitle }}</h2>
-                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                    <span class="meta"><span data-i18n="post.by">作者</span> {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} · <time datetime="{{ page.date | date_to_xmlschema }}" data-date="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y年%m月%d日" }}</time></span>
                 </div>
             </div>
         </div>
@@ -85,8 +85,7 @@
                     <h1>{{ page.title }}</h1>
                     {% comment %} always create a h2 for keeping the margin {% endcomment %}
                     <h2 class="subheading">{{ page.subtitle }}</h2>
-                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %}
-                        on {{ page.date | date: "%B %-d, %Y" }}</span>
+                    <span class="meta"><span data-i18n="post.by">作者</span> {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} · <time datetime="{{ page.date | date_to_xmlschema }}" data-date="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y年%m月%d日" }}</time></span>
                 </div>
             </div>
         </div>
@@ -106,8 +105,8 @@
         {% else %}
         <div class="site-heading">
         {% endif %}
-          <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
-          <span class="subheading">{{ page.description }}</span>
+          <h1{% if page.title-key %} data-i18n="{{ page.title-key }}"{% endif %}>{% if page.title-key %}{{ site.data.i18n.zh[page.title-key] }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+          <span class="subheading"{% if page.description-key %} data-i18n="{{ page.description-key }}"{% endif %}>{{ page.description }}</span>
         </div>
       </div>
     </div>
