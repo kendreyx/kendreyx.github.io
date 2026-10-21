@@ -1,4 +1,6 @@
-# KendreyX Blog 维护交接文档
+# Kendrey Blog 维护交接文档
+
+日常文章管理现可使用 [Sveltia CMS 后台](https://blog.kendrey.top/admin/)，手机和电脑均可操作。首次登录、草稿发布和图片管理见 [后台使用说明](_doc/CMS.zh-CN.md)。
 
 ## 1. 项目说明
 
@@ -152,8 +154,8 @@ bundle exec jekyll serve --livereload --drafts
 网站基础信息在 `_config.yml`：
 
 ```yaml
-title: KendreyX Blog
-SEOTitle: KendreyX Blog
+title: Kendrey Blog
+SEOTitle: Kendrey Blog
 email: helloworld@kendrey.top
 url: "https://blog.kendrey.top"
 ```

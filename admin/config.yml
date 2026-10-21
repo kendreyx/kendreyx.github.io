@@ -1,0 +1,108 @@
+# yaml-language-server: $schema=https://cdn.jsdelivr.net/npm/@sveltia/cms@0.250.0/schema/sveltia-cms.json
+app_title: Kendrey Blog 文章管理
+backend:
+  name: github
+  repo: kendreyx/kendreyx.github.io
+  branch: master
+  auth_methods: [token]
+publish_mode: simple
+site_url: https://blog.kendrey.top
+media_folder: img/posts
+public_folder: /img/posts
+slug:
+  encoding: unicode
+  clean_accents: true
+  sanitize_replacement: '-'
+  timezone: local
+
+collections:
+  - name: posts
+    label: 文章
+    label_singular: 文章
+    folder: _posts
+    create: true
+    delete: true
+    format: yaml-frontmatter
+    extension: md
+    slug:
+      template: '{{year}}-{{month}}-{{day}}-{{slug}}'
+      editable: false
+    filter:
+      field: layout
+      value: post
+    summary: '{{title}} · {{date}}'
+    sortable_fields:
+      fields: [date, title, published]
+      default:
+        field: date
+        direction: descending
+    view_filters:
+      - label: 草稿
+        field: published
+        pattern: false
+      - label: 已发布
+        field: published
+        pattern: true
+    fields:
+      - name: layout
+        widget: hidden
+        default: post
+      - name: title
+        label: 标题
+        widget: string
+      - name: subtitle
+        label: 副标题
+        widget: string
+        required: false
+      - name: published
+        label: 已发布
+        widget: boolean
+        default: false
+        required: false
+        hint: 关闭时保存为草稿；打开后保存，文章将自动发布到博客。
+      - name: date
+        label: 文章日期
+        widget: datetime
+        default: '{{now}}'
+        format: 'YYYY-MM-DD HH:mm:ss Z'
+        input_timezone: Asia/Shanghai
+        output_utc: false
+      - name: author
+        label: 作者
+        widget: string
+        default: Kendrey
+      - name: lang
+        label: 文章语言
+        widget: select
+        default: zh
+        options:
+          - label: 中文
+            value: zh
+          - label: English
+            value: en
+      - name: tags
+        label: 标签
+        widget: list
+        required: false
+      - name: header-style
+        label: 页头样式
+        widget: select
+        default: text
+        options:
+          - label: 文字页头
+            value: text
+          - label: 图片页头
+            value: image
+      - name: header-img
+        label: 页头图片
+        widget: image
+        required: false
+        hint: 选择图片页头时使用。
+      - name: catalog
+        label: 显示目录
+        widget: boolean
+        default: true
+        required: false
+      - name: body
+        label: 正文
+        widget: markdown

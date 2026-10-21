@@ -166,6 +166,13 @@ var fetchHelper = {
  *  void respondWith(Promise<Response> r);
  */
 self.addEventListener('fetch', event => {
+  // The editor must always load its current configuration from the network.
+  const requestURL = new URL(event.request.url);
+  if (requestURL.origin === self.location.origin &&
+      (requestURL.pathname === '/admin' || requestURL.pathname.startsWith('/admin/'))) {
+    return;
+  }
+
   // logs for debugging
   //console.log(`fetch ${event.request.url}`)
   //console.log(` - type: ${event.request.type}; destination: ${event.request.destination}`)
