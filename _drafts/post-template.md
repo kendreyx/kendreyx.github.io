@@ -4,6 +4,7 @@ title: "文章标题"
 subtitle: "可选副标题"
 date: 2026-09-25 12:00:00 +0800
 author: "KendreyX"
+hidden: false
 header-style: text
 catalog: true
 tags:

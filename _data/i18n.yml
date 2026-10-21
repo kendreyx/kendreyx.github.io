@@ -9,6 +9,9 @@ zh:
   home.tagline: 「离开世界之前 一切都是过程」
   home.empty.title: 内容准备中
   home.empty.body: 这里将发布 Kendrey 的文章。请稍后再来。
+  home.archive_only.title: 首页暂无展示文章
+  home.archive_only.body: 已发布的文章可在归档中查看。
+  home.archive_only.link: 查看归档
   sidebar.about: 关于我
   sidebar.description: 内容正在整理中。
   sidebar.tags: 精选标签
@@ -43,6 +46,9 @@ en:
   home.tagline: Every moment is part of the journey.
   home.empty.title: Content coming soon
   home.empty.body: Kendrey's articles will appear here. Please check back soon.
+  home.archive_only.title: No articles featured on the homepage
+  home.archive_only.body: Published articles are available in the archive.
+  home.archive_only.link: View archive
   sidebar.about: About me
   sidebar.description: Content is being prepared.
   sidebar.tags: Featured tags

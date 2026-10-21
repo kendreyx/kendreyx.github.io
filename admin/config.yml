@@ -60,6 +60,17 @@ collections:
         default: false
         required: false
         hint: 关闭时保存为草稿；打开后保存，文章将自动发布到博客。
+      - name: hidden
+        label: 展示位置
+        widget: select
+        default: false
+        required: false
+        hint: 选择“仅归档”时不在首页显示，仍可通过归档、搜索和文章链接访问。
+        options:
+          - label: 首页和归档
+            value: false
+          - label: 仅归档
+            value: true
       - name: date
         label: 文章日期
         widget: datetime

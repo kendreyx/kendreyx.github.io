@@ -4,12 +4,19 @@ description: "「离开世界之前 一切都是过程」"
 description-key: home.tagline
 ---
 
-{% if site.posts.size == 0 %}
+{% assign home_posts = site.posts | where_exp: 'post', 'post.hidden == nil or post.hidden == false' %}
+{% if home_posts.size == 0 %}
 <div class="post-preview post-placeholder">
+    {% if site.posts.size == 0 %}
     <h2 class="post-title" data-i18n="home.empty.title">内容准备中</h2>
     <p class="post-content-preview" data-i18n="home.empty.body">
         这里将发布 Kendrey 的文章。请稍后再来。
     </p>
+    {% else %}
+    <h2 class="post-title" data-i18n="home.archive_only.title">首页暂无展示文章</h2>
+    <p class="post-content-preview" data-i18n="home.archive_only.body">已发布的文章可在归档中查看。</p>
+    <p><a href="{{ '/archive/' | prepend: site.baseurl }}" data-i18n="home.archive_only.link">查看归档</a></p>
+    {% endif %}
 </div>
 <hr>
 {% endif %}
