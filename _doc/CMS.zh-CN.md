@@ -1,6 +1,8 @@
 # 使用 Sveltia CMS 管理博客
 
-当前管理入口：<https://blog.kendrey.top/admin/>，也可点击博客页脚的“文章管理”。电脑、手机使用相同入口。独立的邮箱鉴权管理入口已准备，尚未切换；见[管理入口部署材料](../_cloudflare/admin/README.md)。
+管理入口：博客的 `/admin/`，也可点击页脚的“文章管理”。电脑、手机使用相同入口，通过 GitHub Token 登录后管理文章。
+
+博客和当前后台均托管在 GitHub Pages，文章保存后由 GitHub Actions 自动发布。公开 R2 可通过仓库的 Actions 变量启用，见[接入步骤](../_cloudflare/r2/README.zh-CN.md)；发布博客不依赖 Codex 云环境的保存或发布。
 
 ## 首次登录
 

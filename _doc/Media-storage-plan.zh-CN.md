@@ -8,7 +8,7 @@
 
 | 用途 | 建议入口 | 存储与管理方式 |
 | --- | --- | --- |
-| 博客文章管理 | `admin.kendrey.top/admin/` | 独立 Worker 托管 Sveltia，Cloudflare Access 验证管理员身份后才返回管理页面 |
+| 博客文章管理 | 博客的 `/admin/` | GitHub Pages 托管 Sveltia，使用 GitHub Token 登录管理文章 |
 | 博客图片与公开附件 | `assets.kendrey.top/images/…`、`assets.kendrey.top/files/…` | 一个公开 R2 桶，Sveltia 原生媒体库上传、搜索、选择和删除 |
 | 私密文件管理 | `files.kendrey.top/admin/` | 独立私有 R2 桶；手机、电脑使用同一管理页，通过 Cloudflare Access 登录 |
 | 临时对外分享 | `files.kendrey.top/s/<随机令牌>` | Worker 检查分享有效期与撤销状态，再读取私有桶；访问者无需管理员账号 |
@@ -40,11 +40,11 @@ flowchart LR
 
 新上传先使用新地址，现有 `img/posts/` 保持可用。迁移旧图时先复制并验证链接，再替换正文引用。
 
-## 管理页面入口鉴权
+## 文章管理鉴权
 
-Sveltia 的 GitHub 登录控制文章写入，R2 凭据控制对象读写；两者均不能阻止访客打开公开的静态管理页面。按用户要求，独立管理入口增加 Cloudflare Access 邮箱验证，并在 Worker 中验证签名、issuer、audience、有效期和邮箱白名单后才读取静态资源。静态资源设置 `run_worker_first: true`，关闭 `workers.dev` 和预览入口。
+用户已选择保留 Sveltia 现有的 GitHub Token 登录，后台继续由 GitHub Pages 托管。登录页是公开静态页面；文章读写由 GitHub 仓库权限校验，R2 对象读写由限定桶的凭据校验。
 
-上线时先验证新入口的允许/拒绝行为，再从 Jekyll 构建产物排除原后台文件，并将博客管理链接切换到新域名。只在博客域名保护 `/admin/*` 会遗漏无尾斜线的 `/admin`，也不能为静态 Pages 源站提供服务端校验。具体部署材料见 [`_cloudflare/admin/`](../_cloudflare/admin/README.md)。源代码仓库保持公开，不保存任何 Secret 或实际邮箱白名单。
+公开图床通过仓库的 `R2_PUBLIC_ACCESS_KEY_ID` Actions 变量随 Pages 构建启用，Secret Access Key 只填入 Sveltia 浏览器设置。具体步骤见 [R2 接入说明](../_cloudflare/r2/README.zh-CN.md)。这条流程无需发布 Codex 云环境。
 
 ## 私密文件：账号管理与可过期分享
 
@@ -80,7 +80,7 @@ R2 Standard 当前官方免费额度为每月 10 GB-month 存储、100 万次 Cl
 4. 验证分享创建、到期、主动撤销、重复下载和 Range 请求；到期/撤销后的新请求必须失败，且不得通过缓存绕过。
 5. 完成独立备份恢复演练，再按需迁移旧图片和附件。
 
-存储桶信息已记录，接入和鉴权代码按上述目录准备。配置草稿和本地测试不代表已完成线上部署；云账号凭据通过安全设置绑定，实际部署后再验证并切换管理入口。
+公开桶信息和 Pages 接入材料已准备，真实上传仍需验证桶权限、CORS 与浏览器凭据。私密文件服务独立部署和验收，不改变现有博客及 Sveltia 的 GitHub Pages 托管方式。
 
 ## 依据
 

@@ -1,4 +1,6 @@
-# Cloudflare Access 后台入口（已准备，尚未上线）
+# 独立 Cloudflare Access 后台入口（当前未启用）
+
+当前博客已选择 GitHub Pages 托管 Sveltia，并使用现有 GitHub Token 登录。本目录不参与博客发布；公开图床按 [R2 接入说明](../r2/README.zh-CN.md)配置。以下是独立入口实现的说明。
 
 此目录提供独立的 `admin.kendrey.top` Worker。它尚未部署，现有 GitHub Pages 的 `/admin/` 入口未改动。只有在 Cloudflare Access 应用、管理员策略、Worker 部署和真实访问验证完成后，才能切换或关闭原公开入口。
 

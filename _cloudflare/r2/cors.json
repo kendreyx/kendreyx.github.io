@@ -1,7 +1,6 @@
 [
   {
     "AllowedOrigins": [
-      "https://admin.kendrey.top",
       "https://blog.kendrey.top",
       "https://www.kendrey.top"
     ],

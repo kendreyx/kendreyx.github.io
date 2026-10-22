@@ -43,6 +43,18 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Validate public R2 configuration
+        run: node --test _cloudflare/r2/configure.test.mjs
+      - name: Configure public R2 media library
+        env:
+          # This is the public Access Key ID, never the Secret Access Key.
+          R2_PUBLIC_ACCESS_KEY_ID: ${{ vars.R2_PUBLIC_ACCESS_KEY_ID }}
+        run: |
+          if [ -n "$R2_PUBLIC_ACCESS_KEY_ID" ]; then
+            node _cloudflare/r2/configure.mjs --prefer-existing
+          else
+            echo "::notice::R2_PUBLIC_ACCESS_KEY_ID is unset; using the repository media configuration."
+          fi
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
