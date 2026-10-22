@@ -1,0 +1,32 @@
+name: Validate Obsidian blog plugin
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '_tools/obsidian-blog/**'
+      - 'downloads/obsidian-kendrey-blog-sync-*.zip'
+      - '.github/workflows/obsidian-plugin.yml'
+      - 'LICENSE'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: _tools/obsidian-blog
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm ci --no-audit --no-fund
+      - run: npm test
+      - run: npm run build
+      - name: Verify published archive matches source
+        working-directory: .
+        run: git diff --exit-code -- downloads/obsidian-kendrey-blog-sync-*.zip

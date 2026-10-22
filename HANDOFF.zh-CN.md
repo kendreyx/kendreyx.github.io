@@ -2,6 +2,8 @@
 
 日常文章管理现可使用 [Sveltia CMS 后台](https://blog.kendrey.top/admin/)，手机和电脑均可操作。首次登录、草稿发布和图片管理见 [后台使用说明](_doc/CMS.zh-CN.md)。
 
+本地写作还可使用 [Obsidian 双向同步工具](_doc/Obsidian.zh-CN.md)，仅发布选中的笔记，并接收 Sveltia 修改。
+
 ## 1. 项目说明
 
 这是一个使用 Jekyll 4 和 Liquid 模板构建的静态博客，通过 GitHub Actions 发布到 GitHub Pages。

@@ -1,0 +1,9 @@
+{
+  "id": "kendrey-blog-sync",
+  "name": "Kendrey Blog Sync",
+  "version": "0.1.0",
+  "minAppVersion": "1.11.4",
+  "description": "Publish selected notes to Kendrey Blog and pull Sveltia CMS changes with conflict copies.",
+  "author": "Kendrey",
+  "isDesktopOnly": false
+}

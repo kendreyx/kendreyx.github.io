@@ -4,6 +4,8 @@
 
 博客和当前后台均托管在 GitHub Pages，文章保存后由 GitHub Actions 自动发布。公开 R2 可通过仓库的 Actions 变量启用，见[接入步骤](../_cloudflare/r2/README.zh-CN.md)；发布博客不依赖 Codex 云环境的保存或发布。
 
+也可用 [Obsidian 博客同步工具](Obsidian.zh-CN.md)发布选中的本地笔记，并拉取 CMS 修改。两端使用同一批文章，冲突时保留副本。
+
 ## 首次登录
 
 1. 使用拥有本博客仓库写入权限的 GitHub 账号打开[创建访问令牌页面](https://github.com/settings/personal-access-tokens/new?name=Kendrey+Blog+CMS&contents=write)。

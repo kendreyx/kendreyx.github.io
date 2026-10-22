@@ -1,0 +1,2 @@
+.kendrey-blog-dialog .setting-item-control input[type="text"] { width: min(22rem, 55vw); }
+.kendrey-blog-dialog p { color: var(--text-muted); overflow-wrap: anywhere; }
