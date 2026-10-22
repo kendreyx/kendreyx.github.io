@@ -1,0 +1,23 @@
+{
+  "name": "kendrey-blog-private-admin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "configure": "node scripts/configure.mjs",
+    "build": "node scripts/build-assets.mjs",
+    "test": "node --test",
+    "check": "npm test && npm run build",
+    "dry-run": "npm run build && wrangler deploy --dry-run --outdir .dry-run",
+    "deploy": "node scripts/deploy.mjs"
+  },
+  "dependencies": {
+    "jose": "6.2.13"
+  },
+  "devDependencies": {
+    "wrangler": "4.151.3"
+  }
+}

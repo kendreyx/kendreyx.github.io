@@ -1,6 +1,6 @@
 # 使用 Sveltia CMS 管理博客
 
-管理入口：<https://blog.kendrey.top/admin/>，也可点击博客页脚的“文章管理”。电脑、手机使用相同入口。
+当前管理入口：<https://blog.kendrey.top/admin/>，也可点击博客页脚的“文章管理”。电脑、手机使用相同入口。独立的邮箱鉴权管理入口已准备，尚未切换；见[管理入口部署材料](../_cloudflare/admin/README.md)。
 
 ## 首次登录
 
@@ -47,4 +47,4 @@
 - 后台入口与字段配置分别为 `admin/index.html`、`admin/config.yml`；两者都是静态文件，不添加 Jekyll Front Matter。
 - 当前固定 Sveltia CMS `0.250.0`，脚本通过 SHA-384 完整性校验加载。升级时同步更新版本和完整性校验值，并验证手机编辑及草稿发布流程。
 - 站点访客的中英文切换与后台“文章语言”分别控制界面和文章标记，正文按作者填写的语言保存。
-- 图床、公开附件、私密文件与限时分享的后续设计见[存储服务规划](Media-storage-plan.zh-CN.md)。当前上传仍保存到博客仓库，存储服务按规划另行开通。
+- 图床、公开附件、私密文件与限时分享见[存储服务规划](Media-storage-plan.zh-CN.md)。用户已创建公开 R2 桶；[接入材料](../_cloudflare/r2/README.zh-CN.md)已准备，待配置启用前上传仍保存到博客仓库。

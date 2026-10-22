@@ -1,0 +1,20 @@
+[
+  {
+    "AllowedOrigins": [
+      "https://admin.kendrey.top",
+      "https://blog.kendrey.top",
+      "https://www.kendrey.top"
+    ],
+    "AllowedMethods": ["GET", "HEAD", "PUT", "DELETE"],
+    "AllowedHeaders": [
+      "Authorization",
+      "Content-Type",
+      "x-amz-date",
+      "x-amz-content-sha256",
+      "x-amz-copy-source",
+      "x-amz-metadata-directive"
+    ],
+    "ExposeHeaders": ["ETag"],
+    "MaxAgeSeconds": 3600
+  }
+]

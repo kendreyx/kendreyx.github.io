@@ -1,0 +1,8 @@
+node_modules/
+.assets/
+.dry-run/
+.wrangler/
+.dev.vars
+.env
+.env.*
+wrangler.production.jsonc
